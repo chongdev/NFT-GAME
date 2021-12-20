@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CryptoZombies front-end</title>
+    <script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Include web3.js here -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script> -->
+    <script src="https://unpkg.com/web3@latest/dist/web3.min.js"></script>
+
+    <!-- 1. เพิ่ม cryptozombies_abi.js ตรงนี้ -->
+    <script language="javascript" type="text/javascript" src="cryptozombies_abi.js"></script>
+</head>
+
+<body>
+    <div id="txStatus"></div>
+    <div id="zombies"></div>
+
+    <script>
+        //  let web3 = new Web3(Web3.givenProvider || "ws://localhost:8545");
+
+        const CONTRACT_ADDRESS = "0xbCD2d17fdFC00727E44330EfBa50e5fF7f43458b";
+        var cryptoZombies, web3js;
+
+        // 1. ประกาศ `userAccount` ตรงนี้
+        var userAccount = "";
+
+        function startApp() {
+            cryptoZombies = new web3js.eth.Contract(cryptoZombiesABI, CONTRACT_ADDRESS);
+            console.log('3.', web3js.eth.accounts[0]);
+
+            var accountInterval = setInterval(function() {
+                if (web3js.eth.accounts[0] !== userAccount) {
+                    userAccount = web3js.eth.accounts[0];
+                    getZombiesByOwner(userAccount).then(displayZombies);
+                }
+            }, 100);
+
+            cryptoZombies.events.Transfer({
+                filter: {
+                    _to: userAccount
+                }
+            })
+        }
+
+        function displayZombies(ids) {
+            console.log('4. displayZombies');
+            $("#zombies").empty();
+            for (id of ids) {
+                // เข้าดูข้อมูลของซอมบี้จาก contract ของเราเอง รีเทิร์นอ็อบเจ็กต์ `zombie` ออกมา
+                getZombieDetails(id)
+                    .then(function(zombie) {
+                        // ใช้ "template literals" ของ ES6 ในการเพิ่มตัวแปรเข้าไปยังไฟล์ HTML
+                        // Append เพิ่มแต่ละอย่างเข้าไปที่ #zombies div
+                        $("#zombies").append(`<div class="zombie">
+              <ul>
+                <li>Name: ${zombie.name}</li>
+                <li>DNA: ${zombie.dna}</li>
+                <li>Level: ${zombie.level}</li>
+                <li>Wins: ${zombie.winCount}</li>
+                <li>Losses: ${zombie.lossCount}</li>
+                <li>Ready Time: ${zombie.readyTime}</li>
+              </ul>
+            </div>`);
+                    });
+            }
+        }
+
+        function getZombiesByOwner(owner) {
+            return cryptoZombies.methods.getZombiesByOwner(owner).call()
+        }
+
+        window.addEventListener('load', function() {
+
+            console.log(window.web3);
+            if (typeof window.web3 !== 'undefined') {
+                console.log('1.0 connect web3');
+                web3js = new Web3(window.web3.currentProvider);
+            } else {
+                console.log('1.1 connect web3');
+                const provider = new Web3.providers.HttpProvider("http://localhost:7545");
+                web3js = new Web3(provider);
+                // console.log(provider);
+            }
+
+            // let web3 = new Web3('ws://localhost:8546');
+            // Now you can start your app & access web3 freely:
+            startApp()
+        })
+    </script>
+</body>
+
+</html>

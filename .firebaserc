@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "game-nft-94a05"
+  },  
+  "targets": {
+    "game-nft-94a05": {
+      "hosting": {
+        "web3": [
+          "web3-tutorial"
+        ]
+      }
+    }
+  }
+}

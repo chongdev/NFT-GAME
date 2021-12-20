@@ -1,27 +1,25 @@
-import React, { useEffect } from "react";
-import Web3 from "web3";
+import React, { useState } from "react";
+import { getOwnBalance } from "./Web3Client";
 
 function App() {
-  let providerUrl = process.env.PROVIDER_URL || "http://localhost:8545";
+  const [balance, setBalance] = useState(0);
 
-  useEffect(() => {
-    const web3 = new Web3(providerUrl);
-        let provider = window.ethereum;
+  const fetchBalance = () => {
+    getOwnBalance()
+      .then((balance) => {
+        setBalance(balance);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
-        if (typeof provider !== "undefined") {
-          provider
-            .request({ method: "eth_requestAccounts" })
-            .then((accounts) => {
-              console.log(accounts);
-            })
-            .catch((err) => {
-              console.log(err);
-              return;
-            });
-        }
-  }, []);
-
-  return <div className="App"></div>;
+  return (
+    <div className="App">
+      <p>Your balance is {balance}</p>
+      <button onClick={() => fetchBalance()}>Refresh balance</button>
+    </div>
+  );
 }
 
 export default App;

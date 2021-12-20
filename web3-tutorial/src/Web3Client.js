@@ -81,13 +81,3 @@ export const getOwnBalance = async () => {
 			return Web3.utils.fromWei(balance);
 		});
 };
-
-// export const mintToken = async () => {
-// 	if (!isInitialized) {
-// 		await init();
-// 	}
-
-// 	return nftContract.methods
-// 		.mint(selectedAccount)
-// 		.send({ from: selectedAccount });
-// };

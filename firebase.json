@@ -1,0 +1,13 @@
+{
+  "hosting": [
+    {
+      "target": "web3",
+      "public": "web3-tutorial/build",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ]
+    }
+  ]
+}
