@@ -1,23 +1,22 @@
-import React, { useState } from "react";
-import { getOwnBalance } from "./Web3Client";
+// import React, { useEffect, useState } from "react";
+// import { ethers } from "ethers";
+// import ConnectButton from "./components/ConnectButton";
+import MetaMaskAuth from "./components/MetaMaskAuth";
+  // import styles from "./index.css";
 
 function App() {
-  const [balance, setBalance] = useState(0);
-
-  const fetchBalance = () => {
-    getOwnBalance()
-      .then((balance) => {
-        setBalance(balance);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
 
   return (
-    <div className="App">
-      <p>Your balance is {balance}</p>
-      <button onClick={() => fetchBalance()}>Refresh balance</button>
+    <div className="container">
+
+      <div className="gddqsm">
+        <h1>Log in by connecting a wallet</h1>
+        
+        <div className="wallet-list">
+          <MetaMaskAuth />
+        </div>
+      </div>
+      
     </div>
   );
 }

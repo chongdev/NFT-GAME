@@ -5,9 +5,71 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  background-color: #0f0a18;
+  color: #fff;
 }
 
+html, body{
+  height: 100%
+}
+#root{
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  align-items: center;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+.bbtn{
+    -webkit-box-pack: center;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: transparent;
+    border: none;
+    background-image: url(./images/login-button-background.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    width: 280px;
+    transition: background-image 0.3s ease-in 0s, transform 0.1s ease-in 0s;
+    padding: 13px 0px;
+    border-radius: 2px;
+    color: #fff;
+}
+
+.container{
+  width: 100%;
+  max-width: 960px;
+  margin-right: auto;
+  margin-left: auto;
+
+  
+}
+
+.wallet-list{
+  margin: 30px 24px;
+}
+
+
+.gddqsm{
+    margin: 0px auto;
+    z-index: 1000;
+    
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    padding: 36px;
+    max-width: 400px;
+    width: 100%;
+    text-align: center
+}
+
+.gddqsm h1{
+  text-align: center;
+  font-size: 24px;
+  margin: 0;
+  font-weight: 500;
 }
