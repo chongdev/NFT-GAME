@@ -2,6 +2,7 @@
 // import { ethers } from "ethers";
 // import ConnectButton from "./components/ConnectButton";
 import MetaMaskAuth from "./components/MetaMaskAuth";
+import AccountModal from "./components/AccountModal";
   // import styles from "./index.css";
 
 function App() {
@@ -16,6 +17,9 @@ function App() {
           <MetaMaskAuth />
         </div>
       </div>
+
+
+      <AccountModal />
       
     </div>
   );
