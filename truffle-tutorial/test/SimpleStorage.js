@@ -10,9 +10,17 @@ contract('SimpleStorage', () => {
 });
 
 
-// data = await SimpleStorage.deployed()
-// data.address
+
 
 // storage = await SimpleStorage.deployed()
 // storage.address
-// await storage.updateData(10)
+// await storage.updateData(9)
+
+// data = storage.readData()
+
+
+// sql 
+// con = connect
+// con.update();
+// con.inset()
+// con.delete()
