@@ -12,7 +12,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Header from "../components/Header";
 import Head from "next/head";
 
-// import { ProvideLogin } from "../contexts/login";
+import { ProvideLogin } from "../contexts/login";
 
 // import Image from 'next/image'
 // import { CSSTransition } from "react-transition-group";
@@ -21,23 +21,23 @@ import Head from "next/head";
 
 function App({ Component, pageProps }) {
   return (
-    <UserProvider></UserProvider>
-    /*   { <ProvideLogin>
-      <UserProvider>
-          <Head>
-            <meta
-              id="viewport"
-              name="viewport"
-              content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover"
-            ></meta>
-          </Head>
+   
+    <ProvideLogin>
+      {/* <UserProvider> */}
+        <Head>
+          <meta
+            id="viewport"
+            name="viewport"
+            content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover"
+          ></meta>
+        </Head>
 
-          <Header />
-          <Component {...pageProps} />
+        <Header />
+        <Component {...pageProps} />
 
-          <ToastContainer />
-        </UserProvider>
-      </ProvideLogin> }*/
+        <ToastContainer />
+      {/* </UserProvider> */}
+    </ProvideLogin>
   );
 }
 
