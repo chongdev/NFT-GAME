@@ -1,8 +1,7 @@
-
-.airdropTitle{
+.airdropTitle {
     margin-bottom: 60px;
-    text-align: center;
     margin-top: 0;
+    text-align: center;
 }
 .airdropHero {
     display: flex;
@@ -31,27 +30,23 @@
         margin-bottom: 30px;
     }
 
-    button{
+    button {
         min-width: 300px;
     }
 }
 
-.airdropHeroInfoContent{
+.airdropHeroInfoContent {
     margin-bottom: 60px;
 }
 
 .airdropHeroStage {
     display: flex;
-    
-    flex-direction: column;
-    -webkit-box-align: start;
-    align-items: start;
     width: 343px;
 
     border-radius: 4px;
     overflow: hidden;
 
-    img{
-        width: 100%
+    img {
+        width: 100%;
     }
 }

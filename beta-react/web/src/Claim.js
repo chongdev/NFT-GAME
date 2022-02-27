@@ -11,20 +11,11 @@ const connectors = [
     },
 ]
 
-export default function ConnectWallet() {
+export default function Claim() {
     const { login } = useAuth()
     const [isLoading] = useState(false)
 
     const { account } = useWeb3React()
-
-    const formatAddress = (address) => {
-        if (address) {
-            const addressArr = address.split('')
-            return `${addressArr.slice(0, 11).join('')}...${addressArr.slice(-11).join('')}`
-        }
-
-        return null
-    }
 
     useEffect(() => { }, [account])
 

@@ -12,7 +12,7 @@ const connectors = [
 ]
 
 export default function ConnectWallet() {
-    const { login } = useAuth()
+    const { login, logout } = useAuth()
     const [isLoading] = useState(false)
 
     const { account } = useWeb3React()
@@ -35,7 +35,9 @@ export default function ConnectWallet() {
                     login(connectors[0].connectorId)
                 }} className='btn'>{isLoading ? `loading...` : `Connect Wallet`}</button>
             ) : (
-                <button type="button" className='btn'>{formatAddress(account)}</button>
+                <button onClick={() => {
+                    logout()
+                }}  type="button" className='btn'>{formatAddress(account)}</button>
             )}
         </>
 

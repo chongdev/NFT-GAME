@@ -8,7 +8,7 @@ import ConnectWallet from '../ConnectWallet';
 const MainHeader = () => {
     return (
         <header className={classes.header}>
-            <NavLink to='/' className={classes.navbarBrand}><img src={logo} /></NavLink>
+            <NavLink to='/' className={classes.navbarBrand}><img src={logo} alt="" /></NavLink>
 
             <div className={classes.navbarNav}>
                 <nav>
