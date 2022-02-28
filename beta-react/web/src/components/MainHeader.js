@@ -16,6 +16,8 @@ const MainHeader = () => {
                     <NavLink activeClassName={classes.active} to='/airdrop'><span>Airdrop</span></NavLink>
                     <NavLink activeClassName={classes.active} to='/marketplace'><span>Marketplace</span></NavLink>
                     <NavLink activeClassName={classes.active} to='/inventory'><span>Inventory</span></NavLink>
+                    <NavLink activeClassName={classes.active} to='/staking'><span>Staking</span></NavLink>
+                    <NavLink activeClassName={classes.active} to='/presale'><span>Presale</span></NavLink>
                     <a href="https://whitepaper.dragonary.com/dragonary-whitepaper/v/english-whitepaper/" target={`_blank`}><span>Whitepaper</span></a>
                 </nav>
 

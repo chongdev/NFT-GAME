@@ -26,7 +26,9 @@ export default function ConnectWallet() {
         return null
     }
 
-    useEffect(() => { }, [account])
+    useEffect(() => {
+        // login(connectors[0].connectorId)
+    }, [account])
 
     return (
         <>

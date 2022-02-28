@@ -14,8 +14,6 @@ const useAuth = () => {
   const { activate, deactivate, chainId } = useWeb3React()
 
   const logout = useCallback(() => {
-    console.log('logout...');
-
     deactivate()
     // This localStorage key is set by @web3-react/walletconnect-connector
     if (window.localStorage.getItem('walletconnect')) {
@@ -25,8 +23,6 @@ const useAuth = () => {
   }, [deactivate, chainId])
 
   const login = useCallback((connectorID) => {
-    console.log('login...');
-
     const connector = connectorsByName[connectorID]
     if (connector) {
       activate(connector, async (error) => {
