@@ -24,6 +24,7 @@ const useAuth = () => {
   }, [deactivate, chainId])
 
   const login = useCallback((connectorID) => {
+    
     const connector = connectorsByName[connectorID]
     
     if (connector) {
